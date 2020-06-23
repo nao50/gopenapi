@@ -81,6 +81,8 @@ paths:
                 $ref: "#/components/schemas/Error"
 components:
   schemas:
+    ABABA:
+      type: boolean
     Pet:
       type: object
       required:
@@ -109,3 +111,22 @@ components:
           format: int32
         message:
           type: string
+    Pets2:
+      type: array
+      items:
+        type: object
+        required:
+          - id
+          - name
+        properties:
+          id:
+            type: integer
+            format: int64
+          name:
+            type: string
+          tag:
+            type: string
+    Pets3:
+      type: array
+      items:
+        type: string
