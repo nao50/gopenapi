@@ -2,7 +2,8 @@ package gopenapi
 
 // RequestBody Object.
 type RequestBody struct {
-	Description string                `yaml:"description"`
-	Content     map[string]*MediaType `yaml:"content"`
-	Required    bool                  `yaml:"required"`
+	ExtensionProps
+	Description string  `json:"description,omitempty" yaml:"description,omitempty"`
+	Required    bool    `json:"required,omitempty" yaml:"required,omitempty"`
+	Content     Content `json:"content,omitempty" yaml:"content,omitempty"`
 }

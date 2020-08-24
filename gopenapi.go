@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"io/ioutil"
 
-	"github.com/go-playground/validator/v10"
+	"github.com/go-playground/validator"
 	"github.com/goccy/go-yaml"
 )
 
@@ -27,6 +27,12 @@ func LoadWithValidation(filePath string) (*Document, error) {
 	if err != nil {
 		return nil, err
 	}
-
 	return &document, nil
+
+	// document := &Document{}
+	// if err := yaml.Unmarshal(spec, document); err != nil {
+	// 	return nil, err
+	// }
+
+	// return document, nil
 }

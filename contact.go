@@ -1,8 +1,9 @@
 package gopenapi
 
-// Contact Object.
+// Contact : https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#contact-object
 type Contact struct {
-	Name  string `yaml:"name"`
-	URL   string `yaml:"url"`
-	Email string `yaml:"email"`
+	ExtensionProps
+	Name  string `json:"name,omitempty" yaml:"name,omitempty"`
+	URL   string `json:"url,omitempty" yaml:"url,omitempty"`
+	Email string `json:"email,omitempty" yaml:"email,omitempty"`
 }

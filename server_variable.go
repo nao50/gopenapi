@@ -2,7 +2,7 @@ package gopenapi
 
 // ServerVariable Object.
 type ServerVariable struct {
-	Enum        []string `yaml:"enum"`
-	Default     string   `yaml:"default"`
-	Description string   `yaml:"description"`
+	Enum        []interface{} `json:"enum,omitempty" yaml:"enum,omitempty"`
+	Default     interface{}   `json:"default,omitempty" yaml:"default,omitempty"`
+	Description string        `json:"description,omitempty" yaml:"description,omitempty"`
 }

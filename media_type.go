@@ -2,8 +2,9 @@ package gopenapi
 
 // MediaType Object.
 type MediaType struct {
-	Schema   *Schema              `yaml:"schema"` // TODO: Schema Object | Reference Object
-	Example  interface{}          `yaml:"example"`
-	Examples map[string]*Example  `yaml:"examples"` // TODO: Map[ string, Example Object | Reference Object]
-	Encoding map[string]*Encoding `yaml:"encoding"` // TODO:
+	ExtensionProps
+	Schema   *SchemaRef             `json:"schema,omitempty" yaml:"schema,omitempty"`
+	Example  interface{}            `json:"example,omitempty" yaml:"example,omitempty"`
+	Examples map[string]*ExampleRef `json:"examples,omitempty" yaml:"examples,omitempty"`
+	Encoding map[string]*Encoding   `json:"encoding,omitempty" yaml:"encoding,omitempty"`
 }

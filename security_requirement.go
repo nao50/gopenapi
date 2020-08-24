@@ -1,6 +1,5 @@
 package gopenapi
 
-// SecurityRequirement Object.
-type SecurityRequirement struct {
-	SecurityRequirement []string
-}
+type SecurityRequirements []SecurityRequirement
+
+type SecurityRequirement map[string][]string

@@ -2,12 +2,13 @@ package gopenapi
 
 // SecurityScheme Object
 type SecurityScheme struct {
-	Type             string      `yaml:"bearerFormat"`
-	Description      string      `yaml:"description"`
-	Name             string      `yaml:"name"`             // TODO: Applies To "apiKey" then REQUIRED
-	In               string      `yaml:"in"`               // TODO: Applies To "apiKey" then REQUIRED
-	Scheme           string      `yaml:"scheme"`           // TODO: Applies To "http" then REQUIRED
-	BearerFormat     string      `yaml:"bearerFormat"`     //
-	Flows            *OAuthFlows `yaml:"flows"`            // TODO: Applies To "http" then REQUIRED
-	OpenIDConnectURL string      `yaml:"openIdConnectUrl"` // TODO: Applies To "openIdConnect" then REQUIRED
+	ExtensionProps
+	Type             string      `json:"type,omitempty" yaml:"type,omitempty"`
+	Description      string      `json:"description,omitempty" yaml:"description,omitempty"`
+	Name             string      `json:"name,omitempty" yaml:"name,omitempty"`
+	In               string      `json:"in,omitempty" yaml:"in,omitempty"`
+	Scheme           string      `json:"scheme,omitempty" yaml:"scheme,omitempty"`
+	BearerFormat     string      `json:"bearerFormat,omitempty" yaml:"bearerFormat,omitempty"`
+	Flows            *OAuthFlows `json:"flows,omitempty" yaml:"flows,omitempty"`
+	OpenIDConnectURL string      `json:"openIdConnectUrl,omitempty" yaml:"openIdConnectUrl,omitempty"`
 }

@@ -2,9 +2,9 @@ package gopenapi
 
 // XML Object.
 type XML struct {
-	Name      string `yaml:"name"`
-	Namespace string `yaml:"namespace"`
-	Prefix    string `yaml:"prefix"`
-	Attribute bool   `yaml:"attribute"`
-	Wrapped   bool   `yaml:"wrapped"`
+	Name      string `json:"name" yaml:"name"`
+	Namespace string `json:"namespace" yaml:"namespace"`
+	Prefix    string `json:"prefix" yaml:"prefix"`
+	Attribute bool   `json:"attribute" yaml:"attribute"`
+	Wrapped   bool   `json:"wrapped" yaml:"wrapped"`
 }
