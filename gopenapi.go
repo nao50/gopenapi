@@ -2,13 +2,15 @@ package gopenapi
 
 import (
 	"bytes"
+	"context"
+	"fmt"
 	"io/ioutil"
 
-	"github.com/go-playground/validator"
+	"github.com/go-playground/validator/v10"
 	"github.com/goccy/go-yaml"
 )
 
-func LoadWithValidation(filePath string) (*Document, error) {
+func LoadWithValidation(filePath string) (*OpenAPI, error) {
 	spec, err := ioutil.ReadFile(filePath)
 	if err != nil {
 		return nil, err
@@ -22,17 +24,19 @@ func LoadWithValidation(filePath string) (*Document, error) {
 		yaml.ReferenceDirs("spec"),
 		yaml.Validator(validate),
 	)
-	var document Document
-	err = decoder.Decode(&document)
+	var openAPI OpenAPI
+	err = decoder.Decode(&openAPI)
+	if err != nil {
+		// fmt.Println(yaml.FormatError(err, true, true))
+		return nil, fmt.Errorf("%s", yaml.FormatError(err, true, true))
+	}
+
+	// Validation
+	ctx := context.Background()
+	err = openAPI.Validate(ctx)
 	if err != nil {
 		return nil, err
 	}
-	return &document, nil
 
-	// document := &Document{}
-	// if err := yaml.Unmarshal(spec, document); err != nil {
-	// 	return nil, err
-	// }
-
-	// return document, nil
+	return &openAPI, nil
 }
